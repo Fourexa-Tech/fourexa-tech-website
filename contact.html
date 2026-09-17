@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Fourexa Tech</title>
+<meta name="description" content="Have an idea? Fourexa Tech turns real business challenges into practical digital solutions — tell us what you're trying to solve.">
+<link rel="canonical" href="https://www.fourexatech.com/contact.html">
+<meta property="og:title" content="Contact | Fourexa Tech">
+<meta property="og:description" content="Have an idea? Let's build it.">
+<meta property="og:image" content="assets/og-image.png">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="contact">
+<a href="#main" class="skip-link">Skip to content</a>
+<header><div id="site-header"></div></header>
+
+<main id="main">
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+      <div class="contact-panel">
+        <div class="contact-copy">
+          <h1>Have an idea?<br><span class="grad-text">Let's build it.</span></h1>
+          <p>Tell us what you're trying to solve. We'll start from there.</p>
+          <div class="contact-channels" id="contactChannels"></div>
+        </div>
+
+        <form id="contactForm" novalidate>
+          <!-- Web3Forms: paste your access key between the quotes below -->
+          <input type="hidden" name="access_key" value="959f3da1-5a77-4dff-9c32-ea4278a5f4e3">
+          <input type="hidden" name="subject" value="New inquiry from the Fourexa Tech website">
+          <input type="hidden" name="from_name" value="Fourexa Tech website">
+          <!-- honeypot spam trap — leave this input empty and hidden -->
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
+          <div>
+            <label for="name">Name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+            <p class="field-error" data-error-for="name"></p>
+          </div>
+          <div>
+            <label for="company">Business / Company <span class="req">*</span></label>
+            <input id="company" name="company" type="text" required autocomplete="organization">
+            <p class="field-error" data-error-for="company"></p>
+          </div>
+          <div>
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+          <div>
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div>
+            <label for="industry">Industry</label>
+            <input id="industry" name="industry" type="text">
+          </div>
+          <div>
+            <label for="service">What do you need help with? <span class="req">*</span></label>
+            <select id="service" name="service" required>
+              <option value="">Select one</option>
+              <option>Website / Web Development</option>
+              <option>AI &amp; Automation</option>
+              <option>Digital Marketing &amp; Growth</option>
+              <option>Business Systems</option>
+              <option>Custom Solution</option>
+              <option>Not Sure Yet</option>
+            </select>
+            <p class="field-error" data-error-for="service"></p>
+          </div>
+          <div class="full">
+            <label for="problem">What problem are you trying to solve? <span class="req">*</span></label>
+            <textarea id="problem" name="problem" required></textarea>
+            <p class="field-error" data-error-for="problem"></p>
+          </div>
+          <div>
+            <label for="link">Current website / business link</label>
+            <input id="link" name="link" type="text" placeholder="https://">
+          </div>
+          <div>
+            <label for="budget">Budget range</label>
+            <input id="budget" name="budget" type="text" placeholder="Optional">
+          </div>
+          <div class="full">
+            <label for="deliveryDate">Expected delivery date <span style="color:var(--ink-faint);font-weight:400;">(optional)</span></label>
+            <input id="deliveryDate" name="deliveryDate" type="date">
+            <p class="field-error" data-error-for="deliveryDate"></p>
+          </div>
+          <div class="full">
+            <label for="details">Additional details</label>
+            <textarea id="details" name="details"></textarea>
+          </div>
+
+          <p class="form-status" id="formStatus"></p>
+
+          <button type="submit">
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn-label">Start the Conversation</span>
+          </button>
+          <p class="form-note">We read every message ourselves — no automated sales replies.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div id="site-footer"></div></footer>
+
+<script src="assets/site-config.js"></script>
+<script src="assets/site.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var el = document.getElementById("contactChannels");
+    var cfg = window.siteConfig;
+    var html = "";
+    if (cfg.contact.email) html += '<a href="mailto:' + cfg.contact.email + '">' + cfg.contact.email + "</a>";
+    if (cfg.contact.whatsapp) html += '<a href="https://wa.me/' + cfg.contact.whatsapp.replace(/\D/g, "") + '">Message us on WhatsApp</a>';
+    el.innerHTML = html;
+  });
+</script>
+</body>
+</html>
