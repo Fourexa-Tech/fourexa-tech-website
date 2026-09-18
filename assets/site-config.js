@@ -25,7 +25,7 @@ window.siteConfig = {
   social: {
     linkedin: "https://www.linkedin.com/company/145200936/admin/dashboard/",
     instagram: "https://www.instagram.com/fourexa_tech/",
-    facebook: "https://www.facebook.com/profile.php?id=61594402950549",
+    facebook: "https://www.facebook.com/profile.php?id=61594611924333",
   },
 
   // Contact form submission endpoint. Using Web3Forms — no backend
