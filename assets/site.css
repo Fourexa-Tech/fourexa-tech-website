@@ -439,6 +439,16 @@ body.menu-open{overflow:hidden;}
 
 /* ---------- CONTACT ---------- */
 .contact-panel{background:var(--bg-raised);border:1px solid var(--line);border-radius:6px;padding:56px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;}
+
+/* CTA strip variant (used for the short "wrap contact-panel" band at the
+   bottom of several pages). This used to be an inline style on the
+   element (grid-template-columns:1fr auto), which — being inline —
+   always overrides the .contact-panel responsive rules below no matter
+   what the media query says. Moving it into a class fixes that: at
+   mobile widths the .contact-panel{grid-template-columns:1fr} rule
+   (below) now wins by source order, exactly like it already does for
+   the main contact-panel on /contact. */
+.cta-inline{grid-template-columns:1fr auto;align-items:center;}
 .contact-copy h1,.contact-copy h2{font-size:clamp(1.6rem,2.4vw,2.1rem);margin-bottom:16px;line-height:1.2;}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .contact-copy p{color:var(--ink-dim);font-size:1rem;max-width:38ch;}
