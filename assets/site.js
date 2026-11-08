@@ -53,6 +53,9 @@
     `;
 
     const menu = document.getElementById("mobileMenu");
+    // The header uses backdrop-filter, which traps position:fixed children
+    // inside the header box. Moving the menu to <body> pins it to the screen.
+    document.body.appendChild(menu);
     const openBtn = document.getElementById("menuOpenBtn");
     const closeBtn = document.getElementById("menuCloseBtn");
 
