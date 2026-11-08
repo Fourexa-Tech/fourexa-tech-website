@@ -47,7 +47,13 @@ button{font-family:inherit;cursor:pointer;}
 section{position:relative;}
 
 @media (prefers-reduced-motion: reduce){
-  *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-delay:0s !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
 }
 
 /* ---------- SKIP LINK ---------- */
@@ -514,13 +520,15 @@ footer{border-top:1px solid var(--line);padding:64px 0 32px;}
 
 /* Laptop / small desktop: tighten container before things get cramped */
 @media (max-width:1180px){
-  :root{--maxw:calc(100% - 64px);}
+  :root{--maxw:100%;}
+  .contact-panel.wrap{max-width:calc(100% - 64px);}
 }
 
 /* Tablet & below (768–1023 tablet, but nav collapses here too — 5 links +
    brand + CTA get tight before true desktop width, so hand off to the
    mobile menu earlier rather than letting the navbar wrap or crowd) */
 @media (max-width:1024px){
+  .contact-panel.wrap{max-width:calc(100% - 48px);}
   .wrap{padding:0 24px;}
   nav.links{display:none;}
   .menu-btn{display:flex;}
@@ -564,6 +572,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 32px;}
 
 /* Phones */
 @media (max-width:640px){
+  .contact-panel.wrap{max-width:calc(100% - 40px);}
   .wrap{padding:0 20px;}
   .nav{padding:12px 20px;}
   .brand span{font-size:0.95rem;}
@@ -611,6 +620,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 32px;}
 
 /* Small phones */
 @media (max-width:380px){
+  .contact-panel.wrap{max-width:calc(100% - 32px);}
   .wrap{padding:0 16px;}
   .nav{padding:10px 16px;}
   .brand img{height:28px;}
