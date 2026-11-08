@@ -1,0 +1,200 @@
+
+/* =========================================
+   FOUREXA TECH - SWARM REBUILD EXPERIENCE
+========================================= */
+
+#swarm-rebuild-trigger {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 19px;
+  border: 1px solid rgba(90, 160, 255, .45);
+  border-radius: 50px;
+  background: #101a32;
+  color: #fff;
+  font: 600 14px Inter, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, .35);
+  transition: transform .25s, background .25s;
+}
+
+#swarm-rebuild-trigger:hover {
+  transform: translateY(-4px);
+  background: #19376c;
+}
+
+#swarm-rebuild-trigger .swarm-spark {
+  color: #55c8ff;
+  font-size: 19px;
+}
+
+#swarm-rebuild-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  overflow: hidden;
+  background: #080d19;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s, visibility .4s;
+}
+
+#swarm-rebuild-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.swarm-preview {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  pointer-events: none;
+  scrollbar-width: none;
+  opacity: 1;
+}
+
+.swarm-preview::-webkit-scrollbar {
+  display: none;
+}
+
+.swarm-preview-body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+}
+
+.swarm-preview-body > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.swarm-preview-body > *.swarm-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swarm-preview-body a,
+.swarm-preview-body button {
+  pointer-events: none !important;
+}
+
+.swarm-topbar {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: max-content;
+  max-width: calc(100% - 30px);
+  padding: 12px 18px;
+  border: 1px solid rgba(100, 170, 255, .2);
+  border-radius: 40px;
+  background: rgba(13, 25, 48, .94);
+  box-shadow: 0 8px 35px #0008;
+  font: 13px Inter, sans-serif;
+}
+
+.swarm-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #40d6a1;
+  box-shadow: 0 0 12px #40d6a1;
+  animation: swarm-pulse 1s infinite alternate;
+}
+
+@keyframes swarm-pulse {
+  to { opacity: .35; }
+}
+
+.swarm-exit {
+  border: 1px solid #ffffff30;
+  border-radius: 30px;
+  padding: 8px 13px;
+  background: #ffffff10;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.swarm-exit:hover {
+  background: #ffffff25;
+}
+
+.swarm-cursor {
+  position: fixed;
+  z-index: 10002;
+  width: 24px;
+  height: 30px;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transition: left .65s cubic-bezier(.2,.8,.2,1),
+              top .65s cubic-bezier(.2,.8,.2,1);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.swarm-cursor svg {
+  width: 100%;
+  height: 100%;
+}
+
+.swarm-cursor.cyan { color: #42d7ff; }
+.swarm-cursor.purple { color: #a78bfa; }
+.swarm-cursor.blue { color: #6194ff; }
+
+.swarm-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  height: 3px;
+  background: #ffffff12;
+}
+
+.swarm-progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #35c9ff, #9670ff);
+  transition: width .5s ease;
+}
+
+@media (max-width: 600px) {
+  #swarm-rebuild-trigger {
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 15px;
+    font-size: 12px;
+  }
+
+  .swarm-topbar {
+    top: 12px;
+    gap: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .swarm-cursor {
+    width: 19px;
+    height: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swarm-cursor,
+  .swarm-preview-body > *,
+  #swarm-rebuild-overlay {
+    transition-duration: .01ms !important;
+  }
+}
